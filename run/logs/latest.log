@@ -1,79 +1,129 @@
-[22:45:37] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[22:45:39] [ServerMain/INFO]: Loaded 7 recipes
-[22:45:39] [Server thread/INFO]: Starting minecraft server version 1.20
-[22:45:39] [Server thread/INFO]: Loading properties
-[22:45:39] [Server thread/INFO]: This server is running Paper version git-Paper-17 (MC: 1.20) (Implementing API version 1.20-R0.1-SNAPSHOT) (Git: c287e92)
-[22:45:40] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[22:45:40] [Server thread/INFO]: Using 4 threads for Netty based IO
-[22:45:40] [Server thread/WARN]: [!] The timings profiler has been enabled but has been scheduled for removal from Paper in the future.
+[23:02:28] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[23:02:30] [ServerMain/INFO]: Loaded 7 recipes
+[23:02:30] [Server thread/INFO]: Starting minecraft server version 1.20
+[23:02:30] [Server thread/INFO]: Loading properties
+[23:02:31] [Server thread/INFO]: This server is running Paper version git-Paper-17 (MC: 1.20) (Implementing API version 1.20-R0.1-SNAPSHOT) (Git: c287e92)
+[23:02:31] [Server thread/INFO]: Using 4 threads for Netty based IO
+[23:02:31] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[23:02:31] [Server thread/WARN]: [!] The timings profiler has been enabled but has been scheduled for removal from Paper in the future.
     We recommend installing the spark profiler as a replacement: https://spark.lucko.me/
     For more information please visit: https://github.com/PaperMC/Paper/issues/8948
-[22:45:40] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and gen parallelism of 3 threads
-[22:45:40] [Server thread/INFO]: Default game type: SURVIVAL
-[22:45:40] [Server thread/INFO]: Generating keypair
-[22:45:41] [Server thread/INFO]: Starting Minecraft server on *:25565
-[22:45:41] [Server thread/INFO]: Using default channel type
-[22:45:41] [Server thread/INFO]: Paper: Using Java compression from Velocity.
-[22:45:41] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
-[22:45:42] [Server thread/INFO]: [team] Loading server plugin team v1.0-SNAPSHOT
-[22:45:42] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
-[22:45:42] [Server thread/INFO]: Preparing level "world"
-[22:45:42] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[22:45:42] [Server thread/INFO]: Time elapsed: 273 ms
-[22:45:42] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[22:45:42] [Server thread/INFO]: Time elapsed: 35 ms
-[22:45:42] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[22:45:43] [Server thread/INFO]: Time elapsed: 27 ms
-[22:45:43] [Server thread/INFO]: [team] Enabling team v1.0-SNAPSHOT
-[22:45:43] [Server thread/INFO]: Running delayed init tasks
-[22:45:43] [Server thread/INFO]: Done (3.246s)! For help, type "help"
-[22:45:43] [Server thread/INFO]: Timings Reset
-[22:46:59] [User Authenticator #0/INFO]: UUID of player jyoma_ is 6903a86d-b26e-4b24-8e54-cea1483fc7bf
-[22:47:02] [Server thread/INFO]: jyoma_ [팀: test] joined the game
-[22:47:02] [Server thread/INFO]: jyoma_[/192.168.219.112:53745] logged in with entity id 297 at ([world]-22.92627221665019, 76.03264306031436, 0.2586361417408562)
-[22:47:09] [User Authenticator #0/INFO]: UUID of player rrayy2580 is c3e7871e-a6c4-446f-8ea9-a9ba34c69790
-[22:47:09] [Server thread/INFO]: rrayy2580 [팀: test] joined the game
-[22:47:09] [Server thread/INFO]: rrayy2580[/121.173.38.90:62526] logged in with entity id 368 at ([world]80.12197813777624, 71.17675927506424, 3.3968325649440074)
-[22:47:16] [Server thread/INFO]: jyoma_ issued server command: /tp rrayy2580
-[22:47:16] [Server thread/INFO]: [jyoma_ [팀: test]: Teleported jyoma_ [팀: test] to rrayy2580 [팀: test]]
-[22:47:16] [Server thread/WARN]: jyoma_ moved too quickly! 94.02371101937376,-8.580000013113022,-5.045995039113299
-[22:47:16] [Server thread/WARN]: jyoma_ moved too quickly! 94.02371101937376,-8.580000013113022,-5.045995039113299
-[22:48:17] [Server thread/INFO]: rrayy2580 [팀: test] was slain by Zombie
-[22:48:21] [Server thread/INFO]: jyoma_ issued server command: /tp rrayy2580
-[22:48:21] [Server thread/INFO]: [jyoma_ [팀: test]: Teleported jyoma_ [팀: test] to rrayy2580 [팀: test]]
-[22:48:21] [Server thread/WARN]: jyoma_ moved too quickly! -75.23568290366256,17.495200877005928,-17.89657536517958
-[22:49:52] [Server thread/INFO]: rrayy2580 [팀: test] was slain by Spider
-[22:53:11] [Server thread/INFO]: rrayy2580 [팀: test] was shot by Skeleton
-[22:54:24] [Server thread/INFO]: rrayy2580 issued server command: /gamemode creative
-[22:54:24] [Server thread/INFO]: [rrayy2580 [팀: test]: Set own game mode to Creative Mode]
-[22:54:35] [Server thread/INFO]: Stopping the server
-[22:54:35] [Server thread/INFO]: Stopping server
-[22:54:35] [Server thread/INFO]: [team] Disabling team v1.0-SNAPSHOT
-[22:54:35] [Server thread/INFO]: Saving players
-[22:54:35] [Server thread/INFO]: jyoma_ lost connection: Server closed
-[22:54:35] [Server thread/INFO]: jyoma_ left the game
-[22:54:35] [Server thread/INFO]: rrayy2580 lost connection: Server closed
-[22:54:35] [Server thread/INFO]: rrayy2580 left the game
-[22:54:35] [Server thread/INFO]: Saving worlds
-[22:54:35] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[22:54:35] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
-[22:54:35] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
-[22:54:36] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
-[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Saved 1595 block chunks, 873 entity chunks, 1 poi chunks in world 'world' in 2.01s
-[22:54:38] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[22:54:38] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
-[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
-[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
-[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
-[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 20 entity chunks, 0 poi chunks in world 'world_nether' in 0.01s
-[22:54:38] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[22:54:38] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
-[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
-[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
-[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
-[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Saved 10 block chunks, 10 entity chunks, 0 poi chunks in world 'world_the_end' in 0.02s
-[22:54:38] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[22:54:38] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
-[22:54:38] [Server thread/INFO]: Flushing Chunk IO
-[22:54:38] [Server thread/INFO]: Closing Thread Pool
-[22:54:38] [Server thread/INFO]: Closing Server
+[23:02:31] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and gen parallelism of 3 threads
+[23:02:31] [Server thread/INFO]: Default game type: SURVIVAL
+[23:02:31] [Server thread/INFO]: Generating keypair
+[23:02:31] [Server thread/INFO]: Starting Minecraft server on *:25565
+[23:02:31] [Server thread/INFO]: Using default channel type
+[23:02:31] [Server thread/INFO]: Paper: Using Java compression from Velocity.
+[23:02:31] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[23:02:32] [Server thread/INFO]: [team] Loading server plugin team v1.0-SNAPSHOT
+[23:02:32] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[23:02:32] [Server thread/INFO]: Preparing level "world"
+[23:02:33] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[23:02:33] [Server thread/INFO]: Time elapsed: 394 ms
+[23:02:33] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[23:02:33] [Server thread/INFO]: Time elapsed: 37 ms
+[23:02:33] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[23:02:33] [Server thread/INFO]: Time elapsed: 25 ms
+[23:02:33] [Server thread/INFO]: [team] Enabling team v1.0-SNAPSHOT
+[23:02:33] [Server thread/INFO]: [team] Created default teaminfo.yml
+[23:02:34] [Server thread/INFO]: Running delayed init tasks
+[23:02:34] [Server thread/INFO]: Done (3.083s)! For help, type "help"
+[23:02:34] [Server thread/INFO]: Timings Reset
+[23:02:43] [User Authenticator #0/INFO]: UUID of player rrayy2580 is c3e7871e-a6c4-446f-8ea9-a9ba34c69790
+[23:02:46] [Server thread/INFO]: rrayy2580 joined the game
+[23:02:46] [Server thread/INFO]: rrayy2580[/127.0.0.1:62399] logged in with entity id 262 at ([world]-4.5, 68.0, -7.5)
+[23:03:07] [Server thread/INFO]: rrayy2580 issued server command: /팀 생성
+[23:03:12] [Server thread/INFO]: rrayy2580 issued server command: /팀 생성 dhk
+[23:13:26] [Server thread/INFO]: rrayy2580 has made the advancement [Stone Age]
+[23:14:41] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard players add rrayy2580 teamBelow 12
+[23:14:41] [Server thread/INFO]: [rrayy2580: Added 12 to [TeamBelow] for rrayy2580 (now 13)]
+[23:16:20] [Server thread/INFO]: rrayy2580 was slain by Zombie
+[23:16:37] [Server thread/INFO]: rrayy2580 issued server command: /gamemode creative
+[23:16:37] [Server thread/INFO]: [rrayy2580: Set own game mode to Creative Mode]
+[23:24:00] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives add fwae
+[23:24:31] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives add asdf dummy asdf
+[23:24:38] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives add asdf dummy
+[23:24:38] [Server thread/INFO]: [rrayy2580: Created new objective [asdf]]
+[23:25:07] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives setdisplay belowName asdf
+[23:25:07] [Server thread/INFO]: [rrayy2580: Set display slot belowName to show objective asdf]
+[23:26:54] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives setdisplay sidebar asdf
+[23:26:54] [Server thread/INFO]: [rrayy2580: Set display slot sidebar to show objective asdf]
+[23:27:42] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives add asdf dummy {"displayName":"hi"}
+[23:28:29] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives add asdf air
+[23:28:45] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives remove asdf
+[23:28:45] [Server thread/INFO]: [rrayy2580: Removed objective [asdf]]
+[23:28:58] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives add asdf air
+[23:28:58] [Server thread/INFO]: [rrayy2580: Created new objective [asdf]]
+[23:29:02] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives setdisplay sidebar asdf
+[23:29:02] [Server thread/INFO]: [rrayy2580: Set display slot sidebar to show objective asdf]
+[23:29:13] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives setdisplay belowName asdf
+[23:29:13] [Server thread/INFO]: [rrayy2580: Set display slot belowName to show objective asdf]
+[23:29:40] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives remove asdf
+[23:29:40] [Server thread/INFO]: [rrayy2580: Removed objective [asdf]]
+[23:33:07] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives add asdf air "fsdf"
+[23:33:08] [Server thread/INFO]: [rrayy2580: Created new objective [fsdf]]
+[23:33:13] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives setdisplay belowName asdf
+[23:33:13] [Server thread/INFO]: [rrayy2580: Set display slot belowName to show objective fsdf]
+[23:33:51] [Server thread/INFO]: rrayy2580 lost connection: Disconnected
+[23:33:51] [Server thread/INFO]: rrayy2580 left the game
+[23:36:28] [User Authenticator #1/INFO]: UUID of player rrayy2580 is c3e7871e-a6c4-446f-8ea9-a9ba34c69790
+[23:36:28] [Server thread/INFO]: rrayy2580 joined the game
+[23:36:28] [Server thread/INFO]: rrayy2580[/127.0.0.1:54254] logged in with entity id 3337 at ([world]-76.60820395403177, 81.0, -11.16861514934323)
+[23:36:55] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives add wasdf health "asdf"
+[23:36:55] [Server thread/INFO]: [rrayy2580: Created new objective [asdf]]
+[23:37:50] [Server thread/INFO]: rrayy2580 issued server command: /team 생성 ㅅㄷㄴㅅ
+[23:37:57] [Server thread/INFO]: rrayy2580 issued server command: /team 해산
+[23:37:57] [Server thread/ERROR]: null
+org.bukkit.command.CommandException: Unhandled exception executing command 'team' in plugin team v1.0-SNAPSHOT
+	at org.bukkit.command.PluginCommand.execute(PluginCommand.java:47) ~[paper-api-1.20-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.command.SimpleCommandMap.dispatch(SimpleCommandMap.java:155) ~[paper-api-1.20-R0.1-SNAPSHOT.jar:?]
+	at org.bukkit.craftbukkit.v1_20_R1.CraftServer.dispatchCommand(CraftServer.java:929) ~[paper-1.20.jar:git-Paper-17]
+	at org.bukkit.craftbukkit.v1_20_R1.command.BukkitCommandWrapper.run(BukkitCommandWrapper.java:64) ~[paper-1.20.jar:git-Paper-17]
+	at com.mojang.brigadier.CommandDispatcher.execute(CommandDispatcher.java:265) ~[paper-1.20.jar:?]
+	at net.minecraft.commands.Commands.performCommand(Commands.java:324) ~[?:?]
+	at net.minecraft.commands.Commands.performCommand(Commands.java:308) ~[?:?]
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.performChatCommand(ServerGamePacketListenerImpl.java:2298) ~[?:?]
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.lambda$handleChatCommand$20(ServerGamePacketListenerImpl.java:2258) ~[?:?]
+	at net.minecraft.util.thread.BlockableEventLoop.lambda$submitAsync$0(BlockableEventLoop.java:59) ~[?:?]
+	at java.util.concurrent.CompletableFuture$AsyncSupply.run(Unknown Source) ~[?:?]
+	at net.minecraft.server.TickTask.run(TickTask.java:18) ~[paper-1.20.jar:git-Paper-17]
+	at net.minecraft.util.thread.BlockableEventLoop.doRunTask(BlockableEventLoop.java:153) ~[?:?]
+	at net.minecraft.util.thread.ReentrantBlockableEventLoop.doRunTask(ReentrantBlockableEventLoop.java:24) ~[?:?]
+	at net.minecraft.server.MinecraftServer.doRunTask(MinecraftServer.java:1339) ~[paper-1.20.jar:git-Paper-17]
+	at net.minecraft.server.MinecraftServer.d(MinecraftServer.java:197) ~[paper-1.20.jar:git-Paper-17]
+	at net.minecraft.util.thread.BlockableEventLoop.pollTask(BlockableEventLoop.java:126) ~[?:?]
+	at net.minecraft.server.MinecraftServer.pollTaskInternal(MinecraftServer.java:1316) ~[paper-1.20.jar:git-Paper-17]
+	at net.minecraft.server.MinecraftServer.pollTask(MinecraftServer.java:1309) ~[paper-1.20.jar:git-Paper-17]
+	at net.minecraft.util.thread.BlockableEventLoop.managedBlock(BlockableEventLoop.java:136) ~[?:?]
+	at net.minecraft.server.MinecraftServer.waitUntilNextTick(MinecraftServer.java:1287) ~[paper-1.20.jar:git-Paper-17]
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:1175) ~[paper-1.20.jar:git-Paper-17]
+	at net.minecraft.server.MinecraftServer.lambda$spin$0(MinecraftServer.java:318) ~[paper-1.20.jar:git-Paper-17]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.lang.IllegalStateException: Unregistered scoreboard component
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:502) ~[guava-31.1-jre.jar:?]
+	at org.bukkit.craftbukkit.v1_20_R1.scoreboard.CraftTeam.checkState(CraftTeam.java:401) ~[paper-1.20.jar:git-Paper-17]
+	at org.bukkit.craftbukkit.v1_20_R1.scoreboard.CraftTeam.getName(CraftTeam.java:25) ~[paper-1.20.jar:git-Paper-17]
+	at com.jyoma.team.Team.disbandTeam(Team.java:511) ~[team-1.0-SNAPSHOT.jar:?]
+	at com.jyoma.team.Team.onCommand(Team.java:217) ~[team-1.0-SNAPSHOT.jar:?]
+	at org.bukkit.command.PluginCommand.execute(PluginCommand.java:45) ~[paper-api-1.20-R0.1-SNAPSHOT.jar:?]
+	... 23 more
+[23:38:27] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard objectives setdisplay belowName wasdf
+[23:38:27] [Server thread/INFO]: [rrayy2580: Set display slot belowName to show objective asdf]
+[23:38:36] [Server thread/INFO]: rrayy2580 issued server command: /gamemode survival
+[23:38:36] [Server thread/INFO]: [rrayy2580: Set own game mode to Survival Mode]
+[23:39:06] [Server thread/INFO]: rrayy2580 lost connection: Disconnected
+[23:39:06] [Server thread/INFO]: rrayy2580 left the game
+[23:39:27] [User Authenticator #2/INFO]: UUID of player rrayy2580 is c3e7871e-a6c4-446f-8ea9-a9ba34c69790
+[23:39:27] [Server thread/INFO]: rrayy2580 joined the game
+[23:39:27] [Server thread/INFO]: rrayy2580[/127.0.0.1:61541] logged in with entity id 3662 at ([world]30.95249765600926, 72.1430936371836, -30.097191765862867)
+[23:39:42] [Server thread/INFO]: rrayy2580 fell from a high place
+[23:41:16] [Server thread/INFO]: rrayy2580 fell from a high place
+[23:43:58] [Server thread/INFO]: rrayy2580 discovered the floor was lava
+[23:44:30] [Server thread/INFO]: rrayy2580 issued server command: /scoreboard players set rrayy2580 wasdf 3
+[23:46:25] [Server thread/INFO]: rrayy2580 drowned
+[23:50:21] [Server thread/INFO]: rrayy2580 was slain by Zombie
+[23:52:00] [Server thread/INFO]: rrayy2580 issued server command: /gamemode creative
+[23:52:00] [Server thread/INFO]: [rrayy2580: Set own game mode to Creative Mode]
+[23:58:32] [Server thread/INFO]: rrayy2580 has made the advancement [Monster Hunter]
+[23:59:25] [Server thread/INFO]: rrayy2580 lost connection: Disconnected
+[23:59:25] [Server thread/INFO]: rrayy2580 left the game
