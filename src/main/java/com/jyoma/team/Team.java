@@ -285,8 +285,9 @@ public class Team extends JavaPlugin implements Listener, TabCompleter {
 
         for (String entry : team.getEntries()) {
             Player member = Bukkit.getPlayer(entry);
-            if (member != null)
-                member.sendMessage(T+ "§f" + p.getName() + ": " + e.message());
+            if (member == null) return;
+            net.kyori.adventure.text.TextComponent msg = (net.kyori.adventure.text.TextComponent) e.message();
+            member.sendMessage(T+ "§f" + p.getName() + ": " + msg.content());
         }
     }
 
