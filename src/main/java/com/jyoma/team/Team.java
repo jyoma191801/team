@@ -5,7 +5,6 @@ import org.bukkit.command.*;
 import org.bukkit.entity.Player;
 import org.bukkit.event.*;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import org.bukkit.scoreboard.Scoreboard;
@@ -14,9 +13,11 @@ import net.md_5.bungee.api.chat.*;
 import net.md_5.bungee.api.ChatColor;
 import org.jetbrains.annotations.NotNull;
 
+import io.papermc.paper.event.player.AsyncChatEvent;
+
 import java.util.*;
 
-public class Team extends JavaPlugin implements Listener, TabExecutor {
+public class Team extends JavaPlugin implements Listener, TabCompleter {
     private Scoreboard scoreboard;
     private final Map<UUID, String> roleMap = new HashMap<>();
     private final Map<UUID, Boolean> teamChatMode = new HashMap<>();
@@ -43,7 +44,7 @@ public class Team extends JavaPlugin implements Listener, TabExecutor {
 
         if (args.length == 0) return true;
 
-        Team team = getPlayerTeam(p);
+        org.bukkit.scoreboard.Team team = getPlayerTeam(p);
 
         switch (args[0]) {
 
@@ -93,12 +94,12 @@ public class Team extends JavaPlugin implements Listener, TabExecutor {
     }
 
     @EventHandler
-    public void onChat(AsyncPlayerChatEvent e) {
+    public void onChat(AsyncChatEvent e) {
         Player p = e.getPlayer();
 
         if (!teamChatMode.getOrDefault(p.getUniqueId(), false)) return;
 
-        Team team = getPlayerTeam(p);
+        org.bukkit.scoreboard.Team team = getPlayerTeam(p);
         if (team == null) return;
 
         e.setCancelled(true);
@@ -106,7 +107,7 @@ public class Team extends JavaPlugin implements Listener, TabExecutor {
         for (String entry : team.getEntries()) {
             Player member = Bukkit.getPlayer(entry);
             if (member != null)
-                member.sendMessage("§a[팀] §f" + p.getName() + ": " + e.getMessage());
+                member.sendMessage("§a[팀] §f" + p.getName() + ": " + e.message());
         }
     }
 
@@ -118,7 +119,7 @@ public class Team extends JavaPlugin implements Listener, TabExecutor {
         Player target = Bukkit.getPlayer(name);
         if (target == null) return;
 
-        Team team = getPlayerTeam(inviter);
+        org.bukkit.scoreboard.Team team = getPlayerTeam(inviter);
         inviteMap.put(target.getUniqueId(), team.getName());
 
         inviter.sendMessage(name + "님에게 팀 가입 초대를 보냈습니다.");
@@ -140,7 +141,7 @@ public class Team extends JavaPlugin implements Listener, TabExecutor {
        =============================== */
 
     private void leaveTeam(Player p) {
-        Team team = getPlayerTeam(p);
+        org.bukkit.scoreboard.Team team = getPlayerTeam(p);
         team.removeEntry(p.getName());
         broadcast(team, p.getName() + "님이 팀을 탈퇴하였습니다.");
     }
@@ -153,7 +154,7 @@ public class Team extends JavaPlugin implements Listener, TabExecutor {
         Player target = Bukkit.getPlayer(name);
         if (target == null) return;
 
-        Team team = getPlayerTeam(executor);
+        org.bukkit.scoreboard.Team team = getPlayerTeam(executor);
         team.removeEntry(name);
 
         broadcast(team, executor.getName() + "님에 의해 " + name + "님이 팀에서 추방되었습니다.");
@@ -165,7 +166,7 @@ public class Team extends JavaPlugin implements Listener, TabExecutor {
        =============================== */
 
     private void togglePvp(Player p) {
-        Team team = getPlayerTeam(p);
+        org.bukkit.scoreboard.Team team = getPlayerTeam(p);
         boolean mode = teamPvp.getOrDefault(team.getName(), false);
         teamPvp.put(team.getName(), !mode);
         broadcast(team, !mode ? "팀 pvp ON" : "팀 pvp OFF");
@@ -178,8 +179,8 @@ public class Team extends JavaPlugin implements Listener, TabExecutor {
         Player a = (Player) e.getDamager();
         Player b = (Player) e.getEntity();
 
-        Team ta = getPlayerTeam(a);
-        Team tb = getPlayerTeam(b);
+        org.bukkit.scoreboard.Team ta = getPlayerTeam(a);
+        org.bukkit.scoreboard.Team tb = getPlayerTeam(b);
 
         if (ta == null || tb == null) return;
         if (!ta.getName().equals(tb.getName())) return;
@@ -193,7 +194,7 @@ public class Team extends JavaPlugin implements Listener, TabExecutor {
        =============================== */
 
     private void disbandTeam(Player leader) {
-        Team team = getPlayerTeam(leader);
+        org.bukkit.scoreboard.Team team = getPlayerTeam(leader);
 
         for (String entry : team.getEntries()) {
             Player member = Bukkit.getPlayer(entry);
@@ -221,11 +222,11 @@ public class Team extends JavaPlugin implements Listener, TabExecutor {
         return "LEADER".equals(roleMap.get(p.getUniqueId()));
     }
 
-    private Team getPlayerTeam(Player p) {
+    private org.bukkit.scoreboard.Team getPlayerTeam(Player p) {
         return scoreboard.getEntryTeam(p.getName());
     }
 
-    private void broadcast(Team team, String msg) {
+    private void broadcast(org.bukkit.scoreboard.Team team, String msg) {
         for (String entry : team.getEntries()) {
             Player member = Bukkit.getPlayer(entry);
             if (member != null)
