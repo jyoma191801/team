@@ -8,6 +8,8 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import org.bukkit.scoreboard.Scoreboard;
+import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.DisplaySlot;
 
 import net.md_5.bungee.api.chat.*;
 import net.md_5.bungee.api.ChatColor;
@@ -26,12 +28,16 @@ public class Team extends JavaPlugin implements Listener, TabCompleter {
     private String T = "§x§6§7§6§E§D§6[§x§6§E§7§8§D§6T§x§7§6§8§2§D§6E§x§7§D§8§C§D§6A§x§8§5§9§6§D§6M§x§8§C§A§0§D§6]§f";
 
     private Scoreboard scoreboard;
+    private Objective belowObjective;
+    private Objective sidebarObjective;
     private final Map<UUID, String> roleMap = new HashMap<>();
     private final Map<UUID, Boolean> teamChatMode = new HashMap<>();
     private final Map<String, Boolean> teamPvp = new HashMap<>();
     private final Map<UUID, String> inviteMap = new HashMap<>();
 
-    // ...existing code...
+    // 팀 -> 정수 코드 매핑 (BELOW_NAME에 표시할 숫자)
+    private final Map<String, Integer> teamCodes = new HashMap<>();
+    private int nextTeamCode = 1;
 
     private File dataFile;
 
@@ -45,6 +51,28 @@ public class Team extends JavaPlugin implements Listener, TabCompleter {
         getServer().getPluginManager().registerEvents(this, this);
         Objects.requireNonNull(getCommand("팀")).setExecutor(this);
         Objects.requireNonNull(getCommand("팀")).setTabCompleter(this);
+
+        // BELOW_NAME Objective 준비
+        belowObjective = scoreboard.getObjective("teamBelow");
+        if (belowObjective == null) {
+            try {
+                belowObjective = scoreboard.registerNewObjective("teamBelow", "dummy", "TeamBelow");
+            } catch (IllegalArgumentException ex) {
+                belowObjective = scoreboard.getObjective("teamBelow");
+            }
+        }
+        if (belowObjective != null) belowObjective.setDisplaySlot(DisplaySlot.BELOW_NAME);
+
+        // 사이드바 Objective 준비 (팀 코드 전용 레전드)
+        sidebarObjective = scoreboard.getObjective("teamLegend");
+        if (sidebarObjective == null) {
+            try {
+                sidebarObjective = scoreboard.registerNewObjective("teamLegend", "dummy", "Team Legend");
+            } catch (IllegalArgumentException ex) {
+                sidebarObjective = scoreboard.getObjective("teamLegend");
+            }
+        }
+        if (sidebarObjective != null) sidebarObjective.setDisplaySlot(DisplaySlot.SIDEBAR);
 
         // 데이터 파일
         dataFile = new File(getDataFolder(), "teaminfo.yml");
@@ -64,6 +92,7 @@ public class Team extends JavaPlugin implements Listener, TabCompleter {
                     empty.set("roles", null);
                     empty.set("teamChatMode", null);
                     empty.set("invites", null);
+                    empty.set("teamCodes", null);
                     empty.save(dataFile);
                     getLogger().info("Created default teaminfo.yml");
                 }
@@ -73,6 +102,9 @@ public class Team extends JavaPlugin implements Listener, TabCompleter {
         }
 
         loadTeamData();
+
+        // 모든 플레이어의 BELOW_NAME 점수 갱신
+        updateAllBelowScores();
 
         // 자동 저장 (비동기) - 5분마다 저장
         getServer().getScheduler().runTaskTimerAsynchronously(this, this::saveTeamData, 20L * 60L * 5L, 20L * 60L * 5L);
@@ -362,6 +394,10 @@ public class Team extends JavaPlugin implements Listener, TabCompleter {
         org.bukkit.scoreboard.Team team = getPlayerTeam(p);
         team.removeEntry(p.getName());
         broadcast(team, T+p.getName() + "님이 팀을 탈퇴하였습니다.");
+
+        // 팀을 떠난 뒤 BELOW_NAME을 0으로 설정
+        setPlayerBelowScore(p, 0);
+
         saveTeamData();
     }
 
@@ -403,6 +439,9 @@ public class Team extends JavaPlugin implements Listener, TabCompleter {
         }
 
         team.removeEntry(name);
+
+        // BELOW_NAME을 0으로 설정
+        setPlayerBelowScore(target, 0);
 
         broadcast(team, T+executor.getName() + "님에 의해 " + name + "님이 팀에서 추방되었습니다.");
         target.sendMessage(T+"팀에서 추방되었습니다.");
@@ -451,16 +490,35 @@ public class Team extends JavaPlugin implements Listener, TabCompleter {
     private void disbandTeam(Player leader) {
         org.bukkit.scoreboard.Team team = getPlayerTeam(leader);
 
-        for (String entry : team.getEntries()) {
+        List<String> entries = new ArrayList<>(team.getEntries());
+
+        for (String entry : entries) {
             Player member = Bukkit.getPlayer(entry);
             if (member != null)
                 member.sendMessage(T+"팀이 해산되었습니다.");
         }
 
         team.unregister();
+
+        // 해산된 팀 소속이었던 모든 엔트리는 BELOW_NAME을 0으로
+        for (String entry : entries) {
+            Player member = Bukkit.getPlayer(entry);
+            if (member != null) setPlayerBelowScore(member, 0);
+        }
+
+        // 사이드바에서 해당 팀 항목 제거
+        if (sidebarObjective != null) {
+            scoreboard.resetScores(team.getName());
+        }
+
+        // 팀 코드 제거
+        teamCodes.remove(team.getName());
+        updateTeamLegend();
+
         saveTeamData();
     }
 
+    // 팀 생성에서 코드 할당 및 플레이어 점수 업데이트
     private void createTeam(Player p, String teamName) {
         if (getPlayerTeam(p) != null) {
             p.sendMessage(T+"§c이미 팀에 소속되어 있습니다.");
@@ -474,6 +532,17 @@ public class Team extends JavaPlugin implements Listener, TabCompleter {
         org.bukkit.scoreboard.Team team = scoreboard.registerNewTeam(teamName);
         team.addEntry(p.getName());
         roleMap.put(p.getUniqueId(), "LEADER");
+
+        // 팀 코드 할당
+        assignTeamCode(teamName);
+
+        // 생성자는 no_team에서 제거 (기존 처리 유지)
+        org.bukkit.scoreboard.Team no = scoreboard.getTeam("no_team");
+        if (no != null && no.hasEntry(p.getName())) no.removeEntry(p.getName());
+
+        // 플레이어 BELOW_NAME 점수 업데이트
+        updatePlayerBelowScore(p);
+
         p.sendMessage(T+"§a" + teamName + " 팀이 생성되었습니다! (등급: 팀장)");
         saveTeamData();
     }
@@ -538,7 +607,7 @@ public class Team extends JavaPlugin implements Listener, TabCompleter {
         saveTeamData();
     }
 
-    // 팀 수락 로직 가상 예시 (기존 코드에 추가 필요)
+    // 팀 수락 로직 수정: 수락 시 코드 기반 점수 설정
     private void acceptInvite(Player p, String teamName) {
         String invitedTeam = inviteMap.get(p.getUniqueId());
         if (invitedTeam == null || !invitedTeam.equals(teamName)) {
@@ -551,8 +620,15 @@ public class Team extends JavaPlugin implements Listener, TabCompleter {
             inviteMap.remove(p.getUniqueId());
             // 역할을 명시적으로 MEMBER로 설정
             roleMap.put(p.getUniqueId(), "MEMBER");
+
+            // 수락자는 no_team에서 제거
+            org.bukkit.scoreboard.Team no = scoreboard.getTeam("no_team");
+            if (no != null && no.hasEntry(p.getName())) no.removeEntry(p.getName());
+
+            // 플레이어 점수 갱신
+            updatePlayerBelowScore(p);
+
             p.sendMessage(T+"§a팀에 합류했습니다.");
-            // 팀원들에게도 알림 (broadcast가 T를 붙이므로 여기서는 메시지만 전달)
             broadcast(team, p.getName() + "님이 팀에 합류했습니다.");
             saveTeamData();
         } else {
@@ -674,6 +750,12 @@ public class Team extends JavaPlugin implements Listener, TabCompleter {
                 cfg.set("invites." + e.getKey().toString(), e.getValue());
             }
 
+            // teamCodes
+            cfg.set("teamCodes", null);
+            for (Map.Entry<String, Integer> e : teamCodes.entrySet()) {
+                cfg.set("teamCodes." + e.getKey(), e.getValue());
+            }
+
             cfg.save(dataFile);
         } catch (IOException ex) {
             getLogger().severe("Failed to save teaminfo.yml: " + ex.getMessage());
@@ -685,6 +767,17 @@ public class Team extends JavaPlugin implements Listener, TabCompleter {
 
         FileConfiguration cfg = YamlConfiguration.loadConfiguration(dataFile);
 
+        // 팀 코드 로드
+        if (cfg.isConfigurationSection("teamCodes")) {
+            for (String key : cfg.getConfigurationSection("teamCodes").getKeys(false)) {
+                int val = cfg.getInt("teamCodes." + key, 0);
+                if (val > 0) {
+                    teamCodes.put(key, val);
+                    nextTeamCode = Math.max(nextTeamCode, val + 1);
+                }
+            }
+        }
+
         // teams
         if (cfg.isConfigurationSection("teams")) {
             for (String teamName : cfg.getConfigurationSection("teams").getKeys(false)) {
@@ -695,8 +788,13 @@ public class Team extends JavaPlugin implements Listener, TabCompleter {
                 org.bukkit.scoreboard.Team t = scoreboard.getTeam(teamName);
                 if (t == null) t = scoreboard.registerNewTeam(teamName);
 
+                // 팀 코드가 없으면 할당
+                if (!teamCodes.containsKey(teamName)) assignTeamCode(teamName);
+
                 for (String entry : members) {
                     if (!t.hasEntry(entry)) t.addEntry(entry);
+                    Player member = Bukkit.getPlayer(entry);
+                    if (member != null) updatePlayerBelowScore(member);
                 }
 
                 teamPvp.put(teamName, pvp);
@@ -735,5 +833,73 @@ public class Team extends JavaPlugin implements Listener, TabCompleter {
                 }
             }
         }
+
+        // 로드 후 사이드바 갱신
+        updateTeamLegend();
     }
+
+    // 사이드바에 팀 코드 레전드를 표시
+    private void updateTeamLegend() {
+        if (sidebarObjective == null) return;
+        // 먼저 기존 표시들을 제거 (안전하게 처리)
+        try {
+            for (String teamName : new ArrayList<>(teamCodes.keySet())) {
+                sidebarObjective.getScore(teamName).setScore(teamCodes.get(teamName));
+            }
+        } catch (Exception ignored) {
+        }
+    }
+
+    // ---------------------------- 추가된 유틸리티 메서드 ----------------------------
+
+    // no_team을 가져오거나 생성
+    private org.bukkit.scoreboard.Team getOrCreateNoTeam() {
+        org.bukkit.scoreboard.Team no = scoreboard.getTeam("no_team");
+        if (no == null) {
+            no = scoreboard.registerNewTeam("no_team");
+        }
+        return no;
+    }
+
+    // 플레이어가 서버에 접속할 때 BELOW_NAME 점수 갱신
+    @EventHandler
+    public void onPlayerJoin(org.bukkit.event.player.PlayerJoinEvent e) {
+        Player p = e.getPlayer();
+        updatePlayerBelowScore(p);
+    }
+
+    // ---------------------------- Score 처리 메서드 ----------------------------
+
+    private int assignTeamCode(String teamName) {
+        Integer c = teamCodes.get(teamName);
+        if (c != null) return c;
+        int code = nextTeamCode++;
+        teamCodes.put(teamName, code);
+        updateTeamLegend();
+        return code;
+    }
+
+    private void setPlayerBelowScore(Player p, int score) {
+        if (belowObjective == null) return;
+        belowObjective.getScore(p.getName()).setScore(score);
+    }
+
+    private void updatePlayerBelowScore(Player p) {
+        org.bukkit.scoreboard.Team t = getPlayerTeam(p);
+        int code = 0;
+        if (t != null) {
+            Integer c = teamCodes.get(t.getName());
+            if (c == null) c = assignTeamCode(t.getName());
+            code = c;
+        }
+        setPlayerBelowScore(p, code);
+    }
+
+    private void updateAllBelowScores() {
+        for (Player p : Bukkit.getOnlinePlayers()) {
+            updatePlayerBelowScore(p);
+        }
+    }
+
 }
+

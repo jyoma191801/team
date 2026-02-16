@@ -1,83 +1,79 @@
-[21:50:42] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[21:50:44] [ServerMain/INFO]: Loaded 7 recipes
-[21:50:44] [Server thread/INFO]: Starting minecraft server version 1.20
-[21:50:44] [Server thread/INFO]: Loading properties
-[21:50:45] [Server thread/INFO]: This server is running Paper version git-Paper-17 (MC: 1.20) (Implementing API version 1.20-R0.1-SNAPSHOT) (Git: c287e92)
-[21:50:45] [Server thread/INFO]: Server Ping Player Sample Count: 12
-[21:50:45] [Server thread/INFO]: Using 4 threads for Netty based IO
-[21:50:45] [Server thread/WARN]: [!] The timings profiler has been enabled but has been scheduled for removal from Paper in the future.
+[22:45:37] [ServerMain/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[22:45:39] [ServerMain/INFO]: Loaded 7 recipes
+[22:45:39] [Server thread/INFO]: Starting minecraft server version 1.20
+[22:45:39] [Server thread/INFO]: Loading properties
+[22:45:39] [Server thread/INFO]: This server is running Paper version git-Paper-17 (MC: 1.20) (Implementing API version 1.20-R0.1-SNAPSHOT) (Git: c287e92)
+[22:45:40] [Server thread/INFO]: Server Ping Player Sample Count: 12
+[22:45:40] [Server thread/INFO]: Using 4 threads for Netty based IO
+[22:45:40] [Server thread/WARN]: [!] The timings profiler has been enabled but has been scheduled for removal from Paper in the future.
     We recommend installing the spark profiler as a replacement: https://spark.lucko.me/
     For more information please visit: https://github.com/PaperMC/Paper/issues/8948
-[21:50:45] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and gen parallelism of 3 threads
-[21:50:45] [Server thread/INFO]: Default game type: SURVIVAL
-[21:50:45] [Server thread/INFO]: Generating keypair
-[21:50:45] [Server thread/INFO]: Starting Minecraft server on *:25565
-[21:50:46] [Server thread/INFO]: Using default channel type
-[21:50:46] [Server thread/INFO]: Paper: Using Java compression from Velocity.
-[21:50:46] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
-[21:50:47] [Server thread/INFO]: [team] Loading server plugin team v1.0-SNAPSHOT
-[21:50:47] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
-[21:50:47] [Server thread/INFO]: Preparing level "world"
-[21:50:48] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
-[21:50:48] [Server thread/INFO]: Time elapsed: 421 ms
-[21:50:48] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
-[21:50:48] [Server thread/INFO]: Time elapsed: 33 ms
-[21:50:48] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
-[21:50:48] [Server thread/INFO]: Time elapsed: 29 ms
-[21:50:48] [Server thread/INFO]: [team] Enabling team v1.0-SNAPSHOT
-[21:50:48] [Server thread/INFO]: Running delayed init tasks
-[21:50:48] [Server thread/INFO]: Done (3.662s)! For help, type "help"
-[21:50:48] [Server thread/INFO]: Timings Reset
-[21:50:53] [User Authenticator #0/INFO]: UUID of player jyoma_ is 6903a86d-b26e-4b24-8e54-cea1483fc7bf
-[21:50:56] [Server thread/INFO]: jyoma_ joined the game
-[21:50:56] [Server thread/INFO]: jyoma_[/192.168.219.112:59687] logged in with entity id 268 at ([world]138.5656484827102, 90.53292827534491, -220.87358704788187)
-[21:51:04] [Server thread/INFO]: jyoma_ issued server command: /팀 인원목록
-[21:51:12] [User Authenticator #0/INFO]: UUID of player rrayy2580 is c3e7871e-a6c4-446f-8ea9-a9ba34c69790
-[21:51:12] [Server thread/INFO]: rrayy2580 joined the game
-[21:51:12] [Server thread/INFO]: rrayy2580[/121.173.38.90:58281] logged in with entity id 500 at ([world]27.30000001192093, 68.0, -14.182028942416364)
-[21:51:22] [Server thread/INFO]: jyoma_ issued server command: /팀 초대 rrayy2580
-[21:51:28] [Server thread/INFO]: rrayy2580 issued server command: /팀 수락 test
-[21:51:38] [Server thread/INFO]: jyoma_ issued server command: /팀 초대 1
-[21:51:44] [Server thread/INFO]: jyoma_ issued server command: /팀 추방 rrayy2580
-[21:51:44] [Server thread/INFO]: jyoma_ issued server command: /팀 추방 rrayy2580
-[21:51:51] [Server thread/INFO]: jyoma_ issued server command: /팀 초대 rrayy2580
-[21:51:53] [Server thread/INFO]: jyoma_ issued server command: /팀 초대 rrayy2580
-[21:51:57] [Server thread/INFO]: rrayy2580 issued server command: /팀 수락 test
-[21:52:23] [Server thread/INFO]: jyoma_ issued server command: /팀 강등 rrayy2580
-[21:52:28] [Server thread/INFO]: jyoma_ issued server command: /팀 부팀장 rrayy2580
-[21:52:30] [Server thread/INFO]: jyoma_ issued server command: /팀 부팀장 rrayy2580
-[21:53:17] [Server thread/INFO]: rrayy2580 fell from a high place
-[21:53:34] [Server thread/INFO]: rrayy2580 was shot by Skeleton
-[21:56:53] [Server thread/INFO]: jyoma_ issued server command: /팀 채팅
-[21:56:54] [Server thread/INFO]: jyoma_ issued server command: /팀 채팅
-[22:06:40] [Server thread/INFO]: Stopping the server
-[22:06:40] [Server thread/INFO]: Stopping server
-[22:06:40] [Server thread/INFO]: [team] Disabling team v1.0-SNAPSHOT
-[22:06:40] [Server thread/INFO]: Saving players
-[22:06:40] [Server thread/INFO]: jyoma_ lost connection: Server closed
-[22:06:40] [Server thread/INFO]: jyoma_ left the game
-[22:06:40] [Server thread/INFO]: rrayy2580 lost connection: Server closed
-[22:06:40] [Server thread/INFO]: rrayy2580 left the game
-[22:06:40] [Server thread/INFO]: Saving worlds
-[22:06:40] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
-[22:06:40] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
-[22:06:40] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
-[22:06:40] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
-[22:06:41] [Server thread/INFO]: [ChunkHolderManager] Saved 642 block chunks, 333 entity chunks, 0 poi chunks in world 'world' in 0.59s
-[22:06:41] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
-[22:06:41] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
-[22:06:41] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
-[22:06:41] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
-[22:06:41] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
-[22:06:41] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 21 entity chunks, 0 poi chunks in world 'world_nether' in 0.01s
-[22:06:41] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
-[22:06:41] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
-[22:06:41] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
-[22:06:41] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
-[22:06:41] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
-[22:06:41] [Server thread/INFO]: [ChunkHolderManager] Saved 10 block chunks, 10 entity chunks, 0 poi chunks in world 'world_the_end' in 0.01s
-[22:06:41] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
-[22:06:41] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
-[22:06:41] [Server thread/INFO]: Flushing Chunk IO
-[22:06:41] [Server thread/INFO]: Closing Thread Pool
-[22:06:41] [Server thread/INFO]: Closing Server
+[22:45:40] [Server thread/INFO]: [ChunkTaskScheduler] Chunk system is using 1 I/O threads, 3 worker threads, and gen parallelism of 3 threads
+[22:45:40] [Server thread/INFO]: Default game type: SURVIVAL
+[22:45:40] [Server thread/INFO]: Generating keypair
+[22:45:41] [Server thread/INFO]: Starting Minecraft server on *:25565
+[22:45:41] [Server thread/INFO]: Using default channel type
+[22:45:41] [Server thread/INFO]: Paper: Using Java compression from Velocity.
+[22:45:41] [Server thread/INFO]: Paper: Using Java cipher from Velocity.
+[22:45:42] [Server thread/INFO]: [team] Loading server plugin team v1.0-SNAPSHOT
+[22:45:42] [Server thread/INFO]: Server permissions file permissions.yml is empty, ignoring it
+[22:45:42] [Server thread/INFO]: Preparing level "world"
+[22:45:42] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[22:45:42] [Server thread/INFO]: Time elapsed: 273 ms
+[22:45:42] [Server thread/INFO]: Preparing start region for dimension minecraft:the_nether
+[22:45:42] [Server thread/INFO]: Time elapsed: 35 ms
+[22:45:42] [Server thread/INFO]: Preparing start region for dimension minecraft:the_end
+[22:45:43] [Server thread/INFO]: Time elapsed: 27 ms
+[22:45:43] [Server thread/INFO]: [team] Enabling team v1.0-SNAPSHOT
+[22:45:43] [Server thread/INFO]: Running delayed init tasks
+[22:45:43] [Server thread/INFO]: Done (3.246s)! For help, type "help"
+[22:45:43] [Server thread/INFO]: Timings Reset
+[22:46:59] [User Authenticator #0/INFO]: UUID of player jyoma_ is 6903a86d-b26e-4b24-8e54-cea1483fc7bf
+[22:47:02] [Server thread/INFO]: jyoma_ [팀: test] joined the game
+[22:47:02] [Server thread/INFO]: jyoma_[/192.168.219.112:53745] logged in with entity id 297 at ([world]-22.92627221665019, 76.03264306031436, 0.2586361417408562)
+[22:47:09] [User Authenticator #0/INFO]: UUID of player rrayy2580 is c3e7871e-a6c4-446f-8ea9-a9ba34c69790
+[22:47:09] [Server thread/INFO]: rrayy2580 [팀: test] joined the game
+[22:47:09] [Server thread/INFO]: rrayy2580[/121.173.38.90:62526] logged in with entity id 368 at ([world]80.12197813777624, 71.17675927506424, 3.3968325649440074)
+[22:47:16] [Server thread/INFO]: jyoma_ issued server command: /tp rrayy2580
+[22:47:16] [Server thread/INFO]: [jyoma_ [팀: test]: Teleported jyoma_ [팀: test] to rrayy2580 [팀: test]]
+[22:47:16] [Server thread/WARN]: jyoma_ moved too quickly! 94.02371101937376,-8.580000013113022,-5.045995039113299
+[22:47:16] [Server thread/WARN]: jyoma_ moved too quickly! 94.02371101937376,-8.580000013113022,-5.045995039113299
+[22:48:17] [Server thread/INFO]: rrayy2580 [팀: test] was slain by Zombie
+[22:48:21] [Server thread/INFO]: jyoma_ issued server command: /tp rrayy2580
+[22:48:21] [Server thread/INFO]: [jyoma_ [팀: test]: Teleported jyoma_ [팀: test] to rrayy2580 [팀: test]]
+[22:48:21] [Server thread/WARN]: jyoma_ moved too quickly! -75.23568290366256,17.495200877005928,-17.89657536517958
+[22:49:52] [Server thread/INFO]: rrayy2580 [팀: test] was slain by Spider
+[22:53:11] [Server thread/INFO]: rrayy2580 [팀: test] was shot by Skeleton
+[22:54:24] [Server thread/INFO]: rrayy2580 issued server command: /gamemode creative
+[22:54:24] [Server thread/INFO]: [rrayy2580 [팀: test]: Set own game mode to Creative Mode]
+[22:54:35] [Server thread/INFO]: Stopping the server
+[22:54:35] [Server thread/INFO]: Stopping server
+[22:54:35] [Server thread/INFO]: [team] Disabling team v1.0-SNAPSHOT
+[22:54:35] [Server thread/INFO]: Saving players
+[22:54:35] [Server thread/INFO]: jyoma_ lost connection: Server closed
+[22:54:35] [Server thread/INFO]: jyoma_ left the game
+[22:54:35] [Server thread/INFO]: rrayy2580 lost connection: Server closed
+[22:54:35] [Server thread/INFO]: rrayy2580 left the game
+[22:54:35] [Server thread/INFO]: Saving worlds
+[22:54:35] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world]'/minecraft:overworld
+[22:54:35] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world'
+[22:54:35] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world'
+[22:54:36] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world'
+[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Saved 1595 block chunks, 873 entity chunks, 1 poi chunks in world 'world' in 2.01s
+[22:54:38] [Server thread/INFO]: ThreadedAnvilChunkStorage (world): All chunks are saved
+[22:54:38] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_nether]'/minecraft:the_nether
+[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_nether'
+[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_nether'
+[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_nether'
+[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Saved 0 block chunks, 20 entity chunks, 0 poi chunks in world 'world_nether' in 0.01s
+[22:54:38] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[22:54:38] [Server thread/INFO]: Saving chunks for level 'ServerLevel[world_the_end]'/minecraft:the_end
+[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Waiting 60s for chunk system to halt for world 'world_the_end'
+[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Halted chunk system for world 'world_the_end'
+[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Saving all chunkholders for world 'world_the_end'
+[22:54:38] [Server thread/INFO]: [ChunkHolderManager] Saved 10 block chunks, 10 entity chunks, 0 poi chunks in world 'world_the_end' in 0.02s
+[22:54:38] [Server thread/INFO]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[22:54:38] [Server thread/INFO]: ThreadedAnvilChunkStorage: All dimensions are saved
+[22:54:38] [Server thread/INFO]: Flushing Chunk IO
+[22:54:38] [Server thread/INFO]: Closing Thread Pool
+[22:54:38] [Server thread/INFO]: Closing Server
